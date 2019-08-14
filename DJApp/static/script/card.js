@@ -37,17 +37,35 @@ const statusMessage = document.createElement('div');
            console.error(error);
            statusMessage.textContent = errorMessage;
            clearInputs();
+           console.log(body);
          })
        })
      }
 
      sendingData();
 
+     function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        let cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+let csrftoken = getCookie('csrftoken');
+
        const postData = (body) => {
          return fetch('save',{
            method:'POST',
            headers:{
-             'Content-Type':'application/JSON'
+             'Content-Type':'application/JSON',
+             'X-CSRFToken':csrftoken
            },
            body:JSON.stringify(body)
          })

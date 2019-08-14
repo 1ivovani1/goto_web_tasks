@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from DJApp.views import showCV,data,renderingFish
+from DJApp.views import showCV,renderingFish
 
 urlpatterns = [
     path('',showCV),
     path('payment-data',renderingFish),
-    path('save', data),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('save',renderingFish)
 
 ]
