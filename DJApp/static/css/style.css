@@ -1,0 +1,235 @@
+html {
+  margin: 0;
+  padding: 0; }
+
+.success-message-in-form {
+  padding-top: 10px;
+  margin: 0 auto;
+  font-size: 2rem;
+  color: black; }
+
+body {
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 13pt;
+  background-color: #efefef;
+  padding: 10px;
+  margin: 0; }
+
+h1 {
+  font-size: 15pt;
+  color: #20bcd5;
+  text-align: center;
+  padding: 18px 0;
+  margin: 0 0 10px; }
+
+h1 span {
+  border: 4px dashed #20bcd5;
+  padding: 10px; }
+
+p {
+  padding: 0;
+  margin: 0; }
+
+.img-circle {
+  border: 3px solid white;
+  border-radius: 50%; }
+
+form {
+  width: 60%;
+  font-family: 'Comfortaa', cursive;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0 auto; }
+
+input[type=text], input[type=e-mail], input[type=number] {
+  width: 100%;
+  /* Full width */
+  padding: 12px;
+  /* Some padding */
+  border: 1px solid #ccc;
+  /* Gray border */
+  border-radius: 4px;
+  /* Rounded borders */
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* Make sure that padding and width stays in place */
+  margin-top: 6px;
+  /* Add a top margin */
+  margin-bottom: 16px;
+  /* Bottom margin */
+  resize: vertical;
+  /* Allow the user to vertically resize the textarea (not horizontally) */
+  font-size: 15px;
+  font-family: sans-serif;
+  outline: none; }
+
+input[type=text]::-webkit-input-placeholder, input[type=e-mail]::-webkit-input-placeholder, input[type=number]::-webkit-input-placeholder, input[type=submit] {
+  font-size: 15px;
+  font-family: 'Comfortaa', cursive; }
+
+input[type=text]:-ms-input-placeholder, input[type=e-mail]:-ms-input-placeholder, input[type=number]:-ms-input-placeholder, input[type=submit] {
+  font-size: 15px;
+  font-family: 'Comfortaa', cursive; }
+
+input[type=text]::-ms-input-placeholder, input[type=e-mail]::-ms-input-placeholder, input[type=number]::-ms-input-placeholder, input[type=submit] {
+  font-size: 15px;
+  font-family: 'Comfortaa', cursive; }
+
+input[type=text]::placeholder, input[type=e-mail]::placeholder, input[type=number]::placeholder, input[type=submit] {
+  font-size: 15px;
+  font-family: 'Comfortaa', cursive; }
+
+button[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-family: 'Comfortaa', cursive;
+  font-size: 80%;
+  outline: none; }
+
+/* When moving the mouse over the submit button, add a darker green color */
+button[type=submit]:hover {
+  background-color: #45a049; }
+
+/* Add a background olor and some padding around the form */
+.section:nth-child(4) {
+  background-color: #f2f2f2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+#form {
+  -webkit-transition: 2s;
+  -o-transition: 2s;
+  transition: 2s; }
+
+section:nth-child(4) {
+  padding: 0;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+  section:nth-child(4) a {
+    font-family: 'Comfortaa', cursive;
+    display: block;
+    height: 100%;
+    width: calc(100% / 3);
+    text-decoration: none;
+    text-align: center;
+    padding: 12px;
+    color: #1dd6af;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    cursor: pointer; }
+    section:nth-child(4) a:nth-child(1) {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px; }
+    section:nth-child(4) a:nth-child(3) {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px; }
+    section:nth-child(4) a:hover {
+      background: #1dd6af;
+      color: white; }
+
+section:nth-child(6) {
+  -webkit-transition: 2s;
+  -o-transition: 2s;
+  transition: 2s;
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+  padding: 2% 0 2% 0;
+  display: none; }
+  section:nth-child(6) h1 {
+    font-family: 'Comfortaa', cursive;
+    color: black; }
+  section:nth-child(6) p {
+    width: 50%;
+    margin: 0 auto;
+    font-family: 'Comfortaa', cursive; }
+
+section {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px; }
+  section .quote {
+    font-size: 12pt;
+    text-align: right;
+    margin-top: 10px; }
+  section li {
+    margin-bottom: 15px;
+    font-weight: bold; }
+  section progress {
+    width: 70%;
+    height: 20px;
+    color: #3fb6b2;
+    background: #efefef; }
+  section progress::-webkit-progress-bar {
+    background: #efefef; }
+  section progress::-webkit-progress-value {
+    background: #3fb6b2; }
+  section progress::-moz-progress-bar {
+    color: #3fb6b2;
+    background: #efefef; }
+
+#header {
+  background-image: url("../img/header.jpg");
+  background-size: cover; }
+  #header img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    padding: 1%;
+    margin: auto; }
+  #header p {
+    font-size: 25pt;
+    color: #3b464c;
+    padding-top: 5px;
+    margin: 0;
+    font-weight: bold;
+    text-align: center; }
